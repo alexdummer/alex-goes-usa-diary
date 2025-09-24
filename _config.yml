@@ -1,0 +1,54 @@
+# Site settings
+title: Alex Goes USA - Boulder Research Diary
+description: A collection of my experiences and adventures during my 1-year research stay in Boulder, Colorado
+baseurl: "/alex-goes-usa-diary-"  # the subpath of your site, e.g. /blog
+url: "https://alexdummer.github.io"  # the base hostname & protocol for your site
+
+# Author information
+author: Alex
+email: alex@example.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Pagination
+paginate: 10
+paginate_path: "/page:num/"
+
+# Collections
+collections:
+  diary:
+    output: true
+    permalink: /:collection/:year/:month/:day/:title/
+
+# Default front matter
+defaults:
+  - scope:
+      path: "_diary"
+      type: diary
+    values:
+      layout: post
+      tags: []
+      weather: ""
+      research: ""
+      training: ""
+      activities: ""
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+
+# Tag settings
+tag_page_layout: tag_page
+tag_page_dir: tags
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
