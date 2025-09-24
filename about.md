@@ -12,20 +12,6 @@ Welcome to my personal diary documenting my incredible 1-year research stay in B
 
 I wanted to create a meaningful record of this transformative year abroad. Boulder offers such a unique combination of world-class research opportunities and outdoor adventures that I felt compelled to document every aspect of this journey.
 
-## What You'll Find Here
-
-### 🔬 Research Journey
-Follow along as I navigate the academic landscape, share research breakthroughs, challenges, and collaborate with brilliant minds in my field.
-
-### 🌤️ Weather & Seasons
-Colorado's weather is famously unpredictable and beautiful. I track daily weather patterns and how they influence my activities and mood.
-
-### 🏃‍♂️ Training & Sports
-From hiking the magnificent Flatirons to skiing the legendary Colorado powder, I document all my physical adventures and fitness journey at altitude.
-
-### 🎯 Daily Adventures
-Boulder and Colorado offer endless opportunities for exploration - from Pearl Street Mall to Rocky Mountain National Park, I share all the places I discover and people I meet.
-
 ## The Technical Setup
 
 This diary is built with:
@@ -38,7 +24,7 @@ This diary is built with:
 ## Tags & Organization
 
 I use a tagging system to organize entries by theme:
-- `weather` - Daily weather observations
+- `food` - Food and drinks 
 - `research` - Academic and lab activities
 - `training` - Sports, hiking, skiing, etc.
 - `activities` - Social events and exploration

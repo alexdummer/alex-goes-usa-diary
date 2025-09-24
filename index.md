@@ -3,14 +3,9 @@ layout: home
 title: Home
 ---
 
-# Welcome to Alex's Boulder Research Diary 🏔️
+# Welcome to Alex's Boulder Diary 🏔️
 
-This is a personal diary documenting my experiences and adventures during my 1-year research stay in Boulder, Colorado. Here you'll find daily entries about:
-
-- 🌤️ **Weather** - Colorado's beautiful and sometimes unpredictable weather
-- 🔬 **Research** - My academic work and discoveries
-- 🏃‍♂️ **Training** - Physical activities and sports in the Rockies
-- 🎯 **Activities** - Explorations, cultural experiences, and daily adventures
+This is a personal diary documenting my experiences and adventures during my 1-year research stay in Boulder, Colorado. Here you'll find daily entries about my academic work and discoveries, physical activities and sports in the Rockies, explorations, cultural experiences, and daily adventures.
 
 ## Recent Entries
 
