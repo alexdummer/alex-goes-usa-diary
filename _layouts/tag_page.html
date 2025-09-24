@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="tag-page">
+  <h1>Posts tagged with "{{ page.tag }}"</h1>
+  
+  <div class="tag-posts">
+    {% for post in site.diary %}
+      {% if post.tags contains page.tag %}
+        <div class="diary-entry">
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
+          {% if post.weather %}
+            <p><strong>Weather:</strong> {{ post.weather }}</p>
+          {% endif %}
+          <p>{{ post.excerpt | strip_html | truncate: 200 }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  
+  <p><a href="{{ '/' | relative_url }}">← Back to Home</a></p>
+</div>
