@@ -15,7 +15,7 @@ Woke up at 3am in the morning and couldn't sleep again afterwards. Feeling the j
 
 ## University, Research, etc.
 
-In the afternoon I met my host professor at University of Colorado Boulder. He showed me around and gave me some options for my place to work for the next year. It is very different here to what I am used to. The research groups are spread over several floors and windows are not obviously not necessary. I decided to start working in a shared office with two PhD students (no windows, but a large desk). My office may change during the time here. 
+In the afternoon I met my host professor at University of Colorado Boulder. He showed me around and gave me some options for my place to work for the next year. It is very different here to what I am used to. The research groups are spread over several floors and windows are obviously not necessary. I decided to start working in a shared office with two PhD students (no windows, but a large desk). My office may change during the time here. 
 
 ## Training & Sports
 
