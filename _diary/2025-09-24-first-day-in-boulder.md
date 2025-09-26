@@ -27,7 +27,7 @@ For lunch I got a Buffalo Chicken Wrap at Bova's Market and Grill. Very good, bu
 
 ### Photo of the day
 
-![image][/alex-goes-usa-diary/photos/2025-09-24.jpg]
+![image](/alex-goes-usa-diary/photos/2025-09-24.jpg)
 
 ---
 
