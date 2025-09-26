@@ -25,6 +25,10 @@ No training at all, but walked to the University from my apartment (~2mi). Bould
 
 For lunch I got a Buffalo Chicken Wrap at Bova's Market and Grill. Very good, but a little bit two spicy (may burn twice). My host invited me for dinner at Rincon Argentino near University.
 
+### Photo of the day
+
+![image][_photos/2025-09-24.jpg]
+
 ---
 
 **Weather Summary:** {{ page.weather }}
