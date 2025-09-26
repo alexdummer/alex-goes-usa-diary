@@ -27,6 +27,19 @@
   text-decoration: underline;
 }
 
+h1, .diary-post h1 {
+  font-size: 2rem; // adjust as needed
+}
+h2, .diary-post h2 {
+  font-size: 1.5rem; // adjust as needed
+}
+h3, .diary-entry h3 {
+  font-size: 1.2rem; // adjust as needed
+}
+h4 {
+  font-size: 1rem;
+}
+
 .post-meta {
   color: #666;
   font-style: italic;
