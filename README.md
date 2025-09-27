@@ -1,33 +1,6 @@
 # Alex Goes USA - Boulder Research Diary 🏔️
 
-A Jekyll-powered personal diary documenting my experiences and adventures during my 1-year research stay in Boulder, Colorado.
-
-## 📝 How to Use This Diary
-
-### Daily Entries
-1. Copy the template from `diary-template.md`
-2. Create a new file in the `_diary/` folder with the format: `YYYY-MM-DD-descriptive-title.md`
-3. Fill in your daily experiences, research updates, training activities, and adventures
-4. Use relevant tags to categorize your entries
-
-### Template Structure
-Each diary entry includes sections for:
-- 🌅 **Morning** - How your day started
-- 🔬 **Research Update** - Academic work, experiments, meetings
-- 🏃‍♂️ **Training & Sports** - Physical activities and exercise
-- 🎯 **Daily Activities & Adventures** - Explorations and experiences
-- 🌙 **Evening Reflection** - End-of-day thoughts and plans
-
-### Tags
-Use tags to categorize your entries:
-- `weather` - Weather conditions and observations
-- `research` - Academic and research activities  
-- `training` - Sports, exercise, and physical activities
-- `activities` - Social events, exploration, cultural experiences
-- `boulder` - Boulder-specific experiences
-- Add custom tags as needed!
-
-## 🚀 Local Development
+A Jekyll-powered personal diary documenting my experiences and adventures during my 1-year research stay in Boulder, Colorado. 
 
 ### Prerequisites
 - Ruby 2.7 or higher
