@@ -9,7 +9,8 @@ This is a personal diary documenting my experiences and adventures during my 1-y
 
 ## Recent Entries
 
-{% for post in site.diary limit:5 %}
+{% assign recent_entries = site.diary | reverse %}
+{% for post in recent_entries limit:5 %}
   <div class="diary-entry">
     <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
     <p class="post-meta">{{ post.date | date: "%B %d, %Y" }}</p>
