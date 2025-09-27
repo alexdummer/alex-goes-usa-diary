@@ -1,9 +1,9 @@
 ---
-title: "Day 1 - Arrival in Boulder"
+title: "Day X - Description"
 date: 2025-09-24
 layout: post
 tags: [research, boulder, food]
-weather: "clear blue sky, nice and warm"
+weather: ""
 research: false
 training: false
 activities: false
@@ -16,6 +16,8 @@ activities: false
 ## Training & Sports
 
 ## Food & Drinks
+
+## Photo of the day
 
 ---
 
