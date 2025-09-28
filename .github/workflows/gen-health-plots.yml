@@ -1,0 +1,65 @@
+name: Generate Health & Fitness Plots
+
+on:
+  # Trigger on push to any health data CSV files
+  push:
+    paths:
+      - 'data/steps.csv'
+      - 'data/running.csv'
+      - 'data/hrv.csv'
+  
+  # Daily schedule at 23:00 UTC (adjust timezone as needed)
+  schedule:
+    - cron: '0 23 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-plots:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas matplotlib numpy
+          
+      - name: Create data directory if needed
+        run: |
+          mkdir -p data stats/plots
+          
+      - name: Generate health plots
+        run: python generate_health_plots.py
+        
+      - name: Check if plots were generated
+        run: |
+          echo "Generated plots:"
+          ls -la stats/plots/ || echo "No plots directory found"
+        
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Add any generated plots
+          git add stats/plots/*.png || echo "No plots to add"
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update health & fitness plots - $(date +'%Y-%m-%d %H:%M')"
+            git push
+          fi

@@ -32,6 +32,10 @@ This is a personal diary documenting my experiences and adventures during my 1-y
 {% endfor %}
 </div>
 
+## Statistics
+
+Want to see some data about my Boulder adventure? Check out the [statistics page](/stats/) for activity tracking and visualizations.
+
 ---
 
 *This diary is powered by Jekyll and hosted on GitHub Pages*
