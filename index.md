@@ -7,6 +7,10 @@ title: Home
 
 This is a personal diary documenting my experiences and adventures during my 1-year research stay in Boulder, Colorado. Here you'll find daily entries about my academic work and discoveries, physical activities and sports in the Rockies, explorations, cultural experiences, and daily adventures.
 
+## Statistics
+
+Want to see some data about my Boulder adventure? Check out the [statistics page](/alex-goes-usa-diary/stats/) for activity tracking and visualizations.
+
 ## Recent Entries
 
 {% assign recent_entries = site.diary | reverse %}
@@ -31,10 +35,6 @@ This is a personal diary documenting my experiences and adventures during my 1-y
   {% endif %}
 {% endfor %}
 </div>
-
-## Statistics
-
-Want to see some data about my Boulder adventure? Check out the [statistics page](/stats/) for activity tracking and visualizations.
 
 ---
 
