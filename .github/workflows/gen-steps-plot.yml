@@ -1,0 +1,73 @@
+name: Generate Steps Plot
+
+on:
+  # Trigger on push to data/steps.csv
+  push:
+    paths:
+      - 'data/steps.csv'
+  
+  # Daily schedule at 23:00 UTC (adjust timezone as needed)
+  schedule:
+    - cron: '0 23 * * *'
+  
+  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-plot:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas matplotlib
+          
+      - name: Check if data file exists
+        run: |
+          if [ ! -f "data/steps.csv" ]; then
+            echo "Warning: data/steps.csv not found. Creating empty directories."
+            mkdir -p data stats/plots
+            echo "No data file found - skipping plot generation"
+            exit 0
+          fi
+          
+      - name: Generate steps plot
+        run: python generate_steps_plot.py
+        
+      - name: Check if plot was generated
+        run: |
+          if [ -f "stats/plots/steps_per_day.png" ]; then
+            echo "Plot generated successfully"
+            ls -la stats/plots/
+          else
+            echo "No plot was generated"
+            exit 0
+          fi
+        
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Add the generated plot
+          git add stats/plots/steps_per_day.png
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update steps plot - $(date +'%Y-%m-%d %H:%M')"
+            git push
+          fi
