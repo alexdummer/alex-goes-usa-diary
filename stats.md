@@ -13,7 +13,7 @@ This page shows various health and fitness statistics and visualizations from my
 Here's my daily step count for the last 14 days:
 
 <div class="stats-container">
-  <img src="{{ '/alex-goes-usa-diary/stats/plots/steps_per_day.png' | relative_url }}" alt="Daily Steps - Last 14 Days" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px;">
+  <img src="{{ 'plots/steps_per_day.png' | relative_url }}" alt="Daily Steps - Last 14 Days" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 20px;">
 </div>
 
 ## Cumulative Running Distance
