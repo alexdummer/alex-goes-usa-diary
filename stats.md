@@ -16,17 +16,26 @@ Here's my daily step count for the last 14 days:
   <img src="{{ '/alex-goes-usa-diary/stats/plots/steps_per_day.png' }}" alt="Daily Steps - Last 14 Days" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgb(0 0 0 / 8%);" />
 </div>
 
-## Cumulative Running Distance
+## Cumulative Running Stats
 
 Track my running progress over time:
 
 <div class="stats-container">
-  <img src="{{ '/alex-goes-usa-diary/stats/plots/cumulative_running.png'}}" alt="Cumulative Running Distance" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgb(0 0 0 / 8%);" />
+  <img src="{{ '/alex-goes-usa-diary/stats/plots/cumulative_running.png'}}" alt="Cumulative Running" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgb(0 0 0 / 8%);" />
+</div>
+
+## Cumulative Hiking Stats
+
+Track my hiking progress over time:
+
+<div class="stats-container">
+  <img src="{{ '/alex-goes-usa-diary/stats/plots/cumulative_hiking.png'}}" alt="Cumulative Hiking" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgb(0 0 0 / 8%);" />
 </div>
 
 ## Heart Rate Variability Trend
 
-Monitoring recovery and training adaptation:
+Monitoring recovery and training adaptation.
+
 
 <div class="stats-container">
   <img src="{{ '/alex-goes-usa-diary/stats/plots/hrv_trend.png'}}" alt="Heart Rate Variability Trend" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgb(0 0 0 / 8%);" />

@@ -124,39 +124,40 @@ def generate_running_plot():
     
     # Calculate cumulative distance
     df = df.sort_values('date')
+    # insert a row with today's date and 0 distance if today's date is not present
+    df = df._append({'date': datetime.now(), 'distance_km': 0, 'ascent_m': 0, 'time_min': 0}, ignore_index=True)
+    
     df['cumulative_km'] = df['distance_km'].cumsum()
+    df['cumulative_ascent_m'] = df['ascent_m'].cumsum()
+    df['cumulative_min'] = df['time_min'].cumsum()
     
     # Create the plot
-    plt.figure(figsize=(12, 6))
-    
-    # Create line plot with markers
-    plt.plot(df['date'], df['cumulative_km'], 
-             color='forestgreen', linewidth=2.5, marker='o', markersize=4)
-    
-    # Fill area under the curve
-    plt.fill_between(df['date'], df['cumulative_km'], alpha=0.3, color='forestgreen')
-    
-    # Customize the plot
-    plt.title('Cumulative Running Distance', fontsize=16, fontweight='bold')
-    plt.xlabel('Date', fontsize=12)
-    plt.ylabel('Cumulative Distance (km)', fontsize=12)
-    
-    # Format x-axis dates
-    plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
-    plt.gca().xaxis.set_major_locator(mdates.DayLocator(interval=3))
-    plt.xticks(rotation=45)
-    
-    # Add grid for better readability
-    plt.grid(alpha=0.3, linestyle='-', linewidth=0.5)
-    
-    # Add annotation for total distance
-    total_distance = df['cumulative_km'].iloc[-1]
-    plt.annotate(f'Total: {total_distance:.1f} km', 
-                xy=(df['date'].iloc[-1], total_distance),
-                xytext=(10, 10), textcoords='offset points',
-                bbox=dict(boxstyle='round,pad=0.3', fc='white', alpha=0.8),
-                fontsize=11, fontweight='bold')
-    
+    fig, axs = plt.subplots(1, 3, figsize=(12, 6))
+   
+    for i, (col, title, color) in enumerate(zip(
+        ['cumulative_km', 'cumulative_ascent_m', 'cumulative_min'],
+        ['Cumulative Distance (km)', 'Cumulative Ascent (m)', 'Cumulative Time (min)'],
+        ['forestgreen', 'sienna', 'royalblue']
+    )):
+        axs[i].step(df['date'], df[col], where='post', 
+                    color=color, linewidth=2.5, marker='o', markersize=4)
+        axs[i].set_title(title, fontsize=14, fontweight='bold')
+        axs[i].set_xlabel('Date', fontsize=12)
+        axs[i].set_ylabel(title, fontsize=12)
+        axs[i].xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
+        axs[i].xaxis.set_major_locator(mdates.DayLocator(interval=3))
+        axs[i].tick_params(axis='x', rotation=45)
+        axs[i].grid(alpha=0.3, linestyle='-', linewidth=0.5)
+        
+        # Add annotation for total
+        total_value = df[col].iloc[-1]
+        axs[i].annotate(f'Total: {total_value:.1f}', 
+                        xy=(df['date'].iloc[0], total_value),
+                        xytext=(0, 0), textcoords='offset points',
+                        bbox=dict(boxstyle='round,pad=0.3', fc='white', alpha=0.8),
+                        fontsize=11, fontweight='bold')
+
+
     # Adjust layout to prevent label cutoff
     plt.tight_layout()
     
@@ -180,6 +181,56 @@ def generate_running_plot():
     plt.close()
     return True
 
+# copy of running plot for hiking
+def generate_hiking_plot():
+    """Generate cumulative hiking distance plot."""
+    
+    df = load_and_filter_data('data/hiking.csv', ['date', 'distance_km'], 30)  # Show more data for cumulative
+    if df is None:
+        return False
+    
+    # Calculate cumulative distance
+    df = df.sort_values('date')
+    df = df._append({'date': datetime.now(), 'distance_km': 0, 'ascent_m': 0, 'time_min': 0}, ignore_index=True)
+    df['cumulative_km'] = df['distance_km'].cumsum()
+    df['cumulative_ascent_m'] = df['ascent_m'].cumsum()
+    df['cumulative_min'] = df['time_min'].cumsum()
+    
+    # Create the plot
+    fig, axs = plt.subplots(1, 3, figsize=(12, 6))
+   
+    for i, (col, title, color) in enumerate(zip(
+        ['cumulative_km', 'cumulative_ascent_m', 'cumulative_min'],
+        ['Cumulative Distance (km)', 'Cumulative Ascent (m)', 'Cumulative Time (min)'],
+        ['forestgreen', 'sienna', 'royalblue']
+    )):
+        axs[i].step(df['date'], df[col], where='post', 
+                    color=color, linewidth=2.5, marker='o', markersize=4)
+        axs[i].set_title(title, fontsize=14, fontweight='bold')
+        axs[i].set_xlabel('Date', fontsize=12)
+        axs[i].set_ylabel(title, fontsize=12)
+        axs[i].xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
+        axs[i].xaxis.set_major_locator(mdates.DayLocator(interval=3))
+        axs[i].tick_params(axis='x', rotation=45)
+        axs[i].grid(alpha=0.3, linestyle='-', linewidth=0.5)
+        
+        # Add annotation for total
+        total_value = df[col].iloc[-1]
+        axs[i].annotate(f'Total: {total_value:.1f}', 
+                        xy=(df['date'].iloc[0], total_value),
+                        xytext=(0, 0), textcoords='offset points',
+                        bbox=dict(boxstyle='round,pad=0.3', fc='white', alpha=0.8),
+                        fontsize=11, fontweight='bold')
+
+
+    # Adjust layout to prevent label cutoff
+    plt.tight_layout()
+    
+    # Save the plot
+    output_file = 'stats/plots/cumulative_hiking.png'
+    plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='white')
+    print(f"Plot saved to {output_file}")
+    return True
 
 def generate_hrv_plot():
     """Generate heart rate variability trend plot."""
@@ -266,7 +317,10 @@ def main():
     # Generate running plot
     if generate_running_plot():
         plots_generated += 1
-    
+
+    if generate_hiking_plot():
+        plots_generated += 1
+
     # Generate HRV plot  
     if generate_hrv_plot():
         plots_generated += 1
