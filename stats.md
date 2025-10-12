@@ -24,6 +24,14 @@ Track my running progress over time:
   <img src="{{ '/alex-goes-usa-diary/stats/plots/cumulative_running.png'}}" alt="Cumulative Running" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgb(0 0 0 / 8%);" />
 </div>
 
+## Cumulative Running Stats
+
+Track my running progress over time:
+
+<div class="stats-container">
+  <img src="{{ '/alex-goes-usa-diary/stats/plots/cumulative_swimming.png'}}" alt="Cumulative Swimming" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 2px 4px rgb(0 0 0 / 8%);" />
+</div>
+
 ## Cumulative Hiking Stats
 
 Track my hiking progress over time:

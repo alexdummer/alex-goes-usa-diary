@@ -232,6 +232,54 @@ def generate_hiking_plot():
     print(f"Plot saved to {output_file}")
     return True
 
+# plot for swim distance and duration
+def generate_swimming_plot():
+    """Generate cumulative swimming distance plot."""
+    
+    df = load_and_filter_data('data/swim.csv', ['date', 'distance_m'], 30)  # Show more data for cumulative
+    if df is None:
+        return False
+    
+    # Calculate cumulative distance
+    df = df.sort_values('date')
+    df = df._append({'date': datetime.now(), 'distance_m': 0, 'time_min': 0}, ignore_index=True)
+    df['cumulative_m'] = df['distance_m'].cumsum()
+    df['cumulative_min'] = df['time_min'].cumsum()
+    
+    # Create the plot
+    fig, axs = plt.subplots(1, 2, figsize=(12, 6))
+   
+    for i, (col, title, color) in enumerate(zip(
+        ['cumulative_m', 'cumulative_min'],
+        ['Cumulative Distance (m)', 'Cumulative Time (min)'],
+        ['teal', 'royalblue']
+    )):
+        axs[i].step(df['date'], df[col], where='post', 
+                    color=color, linewidth=2.5, marker='o', markersize=4)
+        axs[i].set_title(title, fontsize=14, fontweight='bold')
+        axs[i].set_xlabel('Date', fontsize=12)
+        axs[i].set_ylabel(title, fontsize=12)
+        axs[i].xaxis.set_major_formatter(mdates.DateFormatter('%m-%d'))
+        axs[i].xaxis.set_major_locator(mdates.DayLocator(interval=3))
+        axs[i].tick_params(axis='x', rotation=45)
+        axs[i].grid(alpha=0.3, linestyle='-', linewidth=0.5)
+        
+        # Add annotation for total
+        total_value = df[col].iloc[-1]
+        axs[i].annotate(f'Total: {total_value:.1f}', 
+                        xy=(df['date'].iloc[0], total_value),
+                        xytext=(0, 0), textcoords='offset points',
+                        bbox=dict(boxstyle='round,pad=0.3', fc='white', alpha=0.8),
+                        fontsize=11, fontweight='bold')
+
+
+    # Adjust layout to prevent label cutoff
+    plt.tight_layout()
+    
+    # Save the plot
+    output_file = 'stats/plots/cumulative_swimming.png'
+    plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='white')
+
 def generate_hrv_plot():
     """Generate heart rate variability trend plot."""
     
@@ -321,6 +369,9 @@ def main():
     if generate_hiking_plot():
         plots_generated += 1
 
+    if generate_swimming_plot():
+        plots_generated += 1
+    
     # Generate HRV plot  
     if generate_hrv_plot():
         plots_generated += 1
