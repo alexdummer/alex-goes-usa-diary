@@ -57,6 +57,3 @@ Monitoring recovery and training adaptation.
 
 *Statistics are automatically generated from my daily activity data.*
 
----
-
-*Statistics are automatically generated from my daily activity data.*
